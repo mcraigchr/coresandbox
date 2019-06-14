@@ -1,0 +1,23 @@
+﻿@model Sandbox.Controllers.HomePageViewModel 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+   <head> 
+       <title>Home</title> 
+   </head> 
+
+   <body> 
+      <h1>Welcome!</h1> 
+      
+      <table> 
+         @foreach (var user in Model.Users) { 
+          <tr>
+              <td>
+                  @Html.ActionLink(user.Id.ToString(), "Details", new
+        { id = user.Id })
+              </td>
+              <td>@user.FirstName</td>
+              <td>@user.LastName</td>
+          </tr> 
+         } 
+      </table> 
+   </body> 
+</html>
