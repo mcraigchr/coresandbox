@@ -7,7 +7,7 @@ namespace Sandbox.Models
     public class SandboxDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        //public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public SandboxDbContext(DbContextOptions<SandboxDbContext> options) : base(options)
         {

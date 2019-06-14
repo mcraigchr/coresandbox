@@ -6,7 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sandbox.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Sandbox.Controllers;
+using Microsoft.AspNetCore.Identity;
 
 namespace Sandbox
 {
@@ -34,7 +35,6 @@ namespace Sandbox
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -59,8 +59,8 @@ namespace Sandbox
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "UserAccount",
+                    template: "{controller=UserAccount}/{action=Login}/{id?}");
             });
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,30 +29,42 @@ namespace Sandbox.Controllers
             //}
             return View(model);
         }
+
+        public IActionResult Login()
+        {
+            var model = new LoginViewModel();
+            return View(model);
+        }
+
+        public IActionResult Details(String UserId)
+        {
+            UserData sqlData = new UserData(_sandboxDbContext);
+            var model = sqlData.Get(UserId);
+
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(String UserId)
+        {
+            UserData sqlData = new UserData(_sandboxDbContext);
+            var model = sqlData.Get(UserId);
+
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
-    public class UserData
-    {
-        private SandboxDbContext _context { get; set; }
-        public UserData(SandboxDbContext context)
-        {
-            _context = context;
-        }
-        public void Add(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-        }
-        public User Get(int ID)
-        {
-            return _context.Users.FirstOrDefault(e => e.Id == ID);
-        }
-        public IEnumerable<User> GetAll()
-        {
-            return _context.Users.ToList<User>();
-        }
-    }
+
     public class HomePageViewModel
     {
         public IEnumerable<User> Users { get; set; }
     }
+
 }

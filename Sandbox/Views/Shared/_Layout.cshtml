@@ -16,6 +16,7 @@
                   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
         </environment>
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -43,6 +44,13 @@
             <partial name="_CookieConsentPartial" />
             <main role="main" class="pb-3">
                 @RenderBody()
+
+                <script src="~/js/mvc-grid/mvc-grid.js"></script>
+                <script>
+                   [].forEach.call(document.getElementsByClassName('mvc-grid'), function (element) {
+                       new MvcGrid(element);
+                   });
+                </script>
             </main>
         </div>
 

@@ -1,0 +1,14 @@
+﻿@using NonFactors.Mvc.Grid;
+@model IEnumerable<Customer>
+@(Html
+.Grid(Model)
+.Build(columns =>
+{
+    columns.Add(model => model.UserName).Titled("Name");
+    columns.Add(model => model.SystemRole).Titled("SystemRole");
+})
+.Empty("No data found")
+.Filterable()
+.Sortable()
+.Pageable()
+)

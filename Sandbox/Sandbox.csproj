@@ -12,6 +12,17 @@
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
+    <PackageReference Include="NonFactors.Grid.Mvc6" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\UserAccount\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="wwwroot\css\mvc-grid\" />
+    <Folder Include="wwwroot\js\mvc-grid\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\fonts\grid-glyphs.woff" />
+  </ItemGroup>
 </Project>

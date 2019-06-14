@@ -11,11 +11,11 @@
          @foreach (var user in Model.Users) { 
           <tr>
               <td>
-                  @Html.ActionLink(user.Id.ToString(), "Details", new
-        { id = user.Id })
+                  @Html.ActionLink(user.UserName.ToString(), "Details", new
+        { id = user.UserName })
               </td>
-              <td>@user.FirstName</td>
-              <td>@user.LastName</td>
+              <td>@user.UserName</td>
+              <td>@user.Password</td>
           </tr> 
          } 
       </table> 
